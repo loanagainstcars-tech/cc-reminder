@@ -1,0 +1,29 @@
+<manifest package="com.example.customerreminder"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Optional: required if you want alarms to be restored after reboot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Customer Reminder"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ui.AddEditActivity" />
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".notification.AlarmReceiver" />
+        <!-- Optional: Boot receiver to reschedule alarms after reboot -->
+        <!--
+        <receiver android:name=".notification.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        -->
+    </application>
+</manifest>
